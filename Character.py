@@ -5,11 +5,11 @@ from Index import changingpicture as cpw
 class Kytizer:
     def __init__(self, x, y):
         self.weaponinventory = [wp.kitchenknife]
-        self.healinginventory = [wp.sliceofpizza, wp.sliceofpizza, wp.sliceofpizza]
+        self.healinginventory = [wp.sandwich, wp.sliceofpizza, wp.sliceofpizza, wp.sliceofpizza, wp.sandwich, wp.sandwich]
         self.x = x
         self.y = y
         self.gold = 0
-        self.hp = 100
+        self.hp = 80
         
     def playericon(self):
         fill(0, 0, 255)
@@ -97,12 +97,16 @@ class Kytizer:
                 print('f')
     
     def healingtime(self):
-        print('type [s] for sandwich')
-        while True:
-            if key == "s":
-                if wp.sandwich in self.healinginventory:
-                    print('hello')
-                else:
-                    print('no sandwich in inventory')
+        if wp.sandwich in self.healinginventory:
+            self.hp = self.hp + wp.sandwich.healing_value
+            self.healinginventory.remove(wp.sandwich)
+            if self.hp > 100:
+                self.hp = 100
+            print('{} HP'.format(self.hp))
+        else:
+            print('no sandwich in inventory')
+
+    def showhealing(self):
+        print('type y to use sandwich')
 
 player = Kytizer(1450, 750)

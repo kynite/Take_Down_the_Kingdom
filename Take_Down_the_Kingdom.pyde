@@ -30,6 +30,8 @@ def keyPressed():
     if key == 'h':
         redraw()
         cpw.i = 3
+    if key == 'y':
+        player.healingtime()
 
 
 def draw():
@@ -53,5 +55,5 @@ def draw():
         background(255)
         player.showinventory()
     elif cp.i == 3:
-        player.healingtime()
+        player.showhealing()
         

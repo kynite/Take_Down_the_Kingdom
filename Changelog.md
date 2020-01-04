@@ -27,4 +27,6 @@
 ## Version 0.6 Alpha
 - Created basic version of healing in game
 
+## Version 0.7 Alpha
+- Healing Added to game
 
