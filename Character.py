@@ -13,6 +13,7 @@ class Kytizer:
         
     def playericon(self):
         fill(0, 0, 255)
+        rectMode(CENTER)
         rect(self.x, self.y, 10, 10)
     
     def movenorth(self):
@@ -70,32 +71,6 @@ class Kytizer:
         # sends the best weapon to function
         return best_weapon
     
-    def playerinteracted(self):
-        # guard 1
-        if self.x > 1310 and self.x < 1335:
-            if self.y > 475 and self.y < 500:
-                print('a')
-        # guard 2
-        if self.x > 785 and self.x < 820:
-            if self.y > 475 and self.y < 510:
-                print('b')
-        # guard 3
-        if self.x > 300 and self.x < 345:
-            if self.y > 475 and self.y < 520:
-                print('c')
-        # guard 4
-        if self.x > 1300 and self.x < 1350:
-            if self.y > 200 and self.y < 250:
-                print('d')
-        # guard 5
-        if self.x > 300 and self.x < 355:
-            if self.y > 200 and self.y < 255:
-                print('e')
-        # guard 6
-        if self.x > 770 and self.x < 830:
-            if self.y > 200 and self.y < 260:
-                print('f')
-    
     def healingtime(self):
         if wp.sandwich in self.healinginventory:
             self.hp = self.hp + wp.sandwich.healing_value
@@ -108,5 +83,21 @@ class Kytizer:
 
     def showhealing(self):
         print('type y to use sandwich')
+    
+    def fight(self, e, g):
+        bestweapon = self.most_powerful_weapon()
+        current_enemy = e
+        while self.hp > 0 and current_enemy.hp > 0:
+            enemy_action = random(1, 2)
+            enemy_action = int(enemy_action)
+            if mousePressed and mouseButton == LEFT:
+                current_enemy.hp -= bestweapon.damage
+                print(current_enemy.hp)
+                if enemy_action == 1:
+                    self.hp -= current_enemy.damage
+                    print(self.hp)
+                elif enemy_action == 2:
+                    pass
+        
 
 player = Kytizer(1450, 750)

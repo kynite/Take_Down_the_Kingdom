@@ -3,7 +3,7 @@ from MovingPlayer import *
 import Main
 from Index import changingpicture as cp
 from World import *
-import PlayerInteraction as phi
+import WorldInteraction as wi
 
 def setup():
     size(1600, 900)
@@ -39,8 +39,8 @@ def draw():
         Main.mainmenu()
     elif cp.i == 1:
         background(255)
+        wi.playerinteracted()
         player.playericon()
-        player.playerinteracted()
         player.openinventory()
         KingsPalace(800, 75)
         PlayerHouse(1445, 720)
@@ -56,4 +56,7 @@ def draw():
         player.showinventory()
     elif cp.i == 3:
         player.showhealing()
+    elif cp.i == 4:
+        background(255)
+        wi.showcombat()
         
