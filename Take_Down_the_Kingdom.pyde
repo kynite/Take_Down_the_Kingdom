@@ -23,6 +23,7 @@ def keyPressed():
         loop()
         player.moveeast()
     if key == "i":
+        loop()
         cpw.i = 2
     if key == 'q':
         redraw()
@@ -31,7 +32,7 @@ def keyPressed():
         redraw()
         cpw.i = 3
     if key == 'y':
-        player.healingtime()
+        player.sandwichheal()
     if key == 'c':
         loop()
 
@@ -41,9 +42,12 @@ def draw():
         Main.mainmenu()
     elif cp.i == 1:
         background(255)
+        fill(0)
+        text('Use [WASD] to move', 1400, 890)
+        text('Type [i] to open Inventory', 1350, 870)
         wi.playerinteracted()
         player.playericon()
-        player.openinventory()
+        player.showgold()
         KingsPalace(800, 75)
         PlayerHouse(1445, 720)
         GuardHouseNo1(1310, 475)
@@ -57,6 +61,7 @@ def draw():
         background(255)
         player.showinventory()
     elif cp.i == 3:
+        background(255)
         player.showhealing()
     elif cp.i == 4:
         loop()

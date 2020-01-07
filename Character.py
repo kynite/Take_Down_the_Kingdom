@@ -1,5 +1,6 @@
 import Items as wp
 from Index import changingpicture as cpw
+from Enemies import *
 
 
 class Kytizer:
@@ -10,11 +11,12 @@ class Kytizer:
         self.y = y
         self.gold = 0
         self.hp = 80
+        self.shopinventory = []
         
     def playericon(self):
         fill(0, 0, 255)
         rectMode(CENTER)
-        rect(self.x, self.y, 10, 10)
+        rect(self.x, self.y, 10, 10) 
     
     def movenorth(self):
         self.y += -2
@@ -28,24 +30,22 @@ class Kytizer:
     def moveeast(self):
         self.x += 2
         
-    def openinventory(self):
+    def showgold(self):
         textSize(20)
         fill(0)
-        text('Inventory', 10, 20)
-        if mousePressed and mouseButton == LEFT:
-            if mouseX > 10 and mouseX < 100:
-                if mouseY > 5 and mouseY < 25:
-                    cpw.i = 2
+        text('{} Gold'.format(self.gold), 10, 20)
+        text('{}HP'.format(self.hp), 10, 50)
+
         
     def showinventory(self):
         y = 100
         textSize(20)
         fill(0)
-        text('Best Weapon:', 10, 50)
+        text('Best Weapon:', 10, 20)
+        text('type [h] to show healing keys', 10, 50)
         text('Consumables:', 10, 100)
-        text('{}'.format(self.most_powerful_weapon().name), 150, 50)
-        text('Backpack:', 10, 20)
-        text('Leave', 1540, 890)
+        text('{}'.format(self.most_powerful_weapon().name), 150, 20)
+        text('Type q to leave', 1450, 890)
         for item in self.healinginventory:
             text('{}'.format(item.name), 160, y)
             y = y + 30
@@ -71,7 +71,7 @@ class Kytizer:
         # sends the best weapon to function
         return best_weapon
     
-    def healingtime(self):
+    def sandwichheal(self):
         if wp.sandwich in self.healinginventory:
             self.hp = self.hp + wp.sandwich.healing_value
             self.healinginventory.remove(wp.sandwich)
@@ -82,32 +82,44 @@ class Kytizer:
             print('no sandwich in inventory')
 
     def showhealing(self):
-        print('type y to use sandwich')
+        fill(0)
+        text('type y to use sandwich', 10, 20)
+        text('Type q to leave', 1450, 890)
     
     def fight(self, e, g):
         bestweapon = self.most_powerful_weapon()
         current_enemy = e
         enemy_action = random(1, 3)
         enemy_action = int(enemy_action)
-        text('you came in combat with {}'.format(current_enemy.name), 750, 150)
+        text('You came in combat with {}'.format(current_enemy.name), 750, 150)
         if mousePressed and mouseButton == RIGHT:
             if self.hp > 0 and current_enemy.hp > 0:
+                text('Press [c] to continue', 1200, 800)
                 current_enemy.hp = current_enemy.hp - bestweapon.damage
                 noLoop()
-                print('you attacked and dealt {} damage!'.format(bestweapon.damage))
-                print('the enemy has {} HP left!'.format(current_enemy.hp))
+                fill(0, 0, 255)
+                text('You attacked and dealt {} damage!'.format(bestweapon.damage), 750, 800)
+                fill(255, 0, 0)
+                text('Enemy: {}HP'.format(current_enemy.hp), 750, 850)
                 if enemy_action == 1:
                     self.hp -= current_enemy.damage
-                    print('the enemy attacked and dealt {}'.format(current_enemy.damage))
-                    print('you have {} HP left!'.format(self.hp))
+                    text('The enemy attacked and dealt {} damage!'.format(current_enemy.damage), 200, 800)
+                    fill(0, 0, 255)
+                    text('{}HP'.format(self.hp), 200, 100)
                 elif enemy_action == 2:
-                    print('the enemy missed!')
+                    fill(255, 0, 0)
+                    text('The enemy missed!', 200, 800)
             elif self.hp <= 0:
                 print('you died')
                 exit()
             elif current_enemy.hp <= 0:
-                print('you defeated {}'.format(current_enemy.name))
+                fill(0, 0, 255)
+                print('you defeated {} and gained {}'.format(current_enemy.name, g))
+                self.gold += g
                 cpw.i = 1
+                current_enemy.hp = current_enemy.originalhp
+                
+                #text('type q to continue', 800, 500)
                 
         
 

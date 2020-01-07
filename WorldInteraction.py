@@ -34,6 +34,10 @@ def playerinteracted():
     
 
 def showcombatguard1():
+    fill(0, 0, 255)
     rect(200, 450, 25, 25)
+    fill(255, 0, 0)
     ellipse(1400, 450, 25, 25)
+    fill(0, 255, 0)
+    text('Right click to attack', 850, 200)
     player.fight(castle_guard, 10)
