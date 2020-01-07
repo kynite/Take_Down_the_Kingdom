@@ -9,9 +9,8 @@ def playerinteracted():
         if player.y > 475 and player.y < 500:
             player.x = 1323
             player.y = 505
-            cpw.i = 4
             if number > 0 and number < 4:
-                player.fight(CastleGuard(), 10)
+                cpw.i = 4
     # guard 2
     if player.x > 785 and player.x < 820:
         if player.y > 475 and player.y < 510:
@@ -32,12 +31,9 @@ def playerinteracted():
     if player.x > 770 and player.x < 830:
         if player.y > 200 and player.y < 260:
             print('f')
+    
 
-def determinecombat():
-    number = random(0, 10)
-    if number > 0 and number < 4:
-        player.fight(CastleGuard, 10)
-
-def showcombat():
+def showcombatguard1():
     rect(200, 450, 25, 25)
     ellipse(1400, 450, 25, 25)
+    player.fight(castle_guard, 10)

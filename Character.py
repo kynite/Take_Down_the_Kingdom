@@ -87,17 +87,28 @@ class Kytizer:
     def fight(self, e, g):
         bestweapon = self.most_powerful_weapon()
         current_enemy = e
-        while self.hp > 0 and current_enemy.hp > 0:
-            enemy_action = random(1, 2)
-            enemy_action = int(enemy_action)
-            if mousePressed and mouseButton == LEFT:
-                current_enemy.hp -= bestweapon.damage
-                print(current_enemy.hp)
+        enemy_action = random(1, 3)
+        enemy_action = int(enemy_action)
+        text('you came in combat with {}'.format(current_enemy.name), 750, 150)
+        if mousePressed and mouseButton == RIGHT:
+            if self.hp > 0 and current_enemy.hp > 0:
+                current_enemy.hp = current_enemy.hp - bestweapon.damage
+                noLoop()
+                print('you attacked and dealt {} damage!'.format(bestweapon.damage))
+                print('the enemy has {} HP left!'.format(current_enemy.hp))
                 if enemy_action == 1:
                     self.hp -= current_enemy.damage
-                    print(self.hp)
+                    print('the enemy attacked and dealt {}'.format(current_enemy.damage))
+                    print('you have {} HP left!'.format(self.hp))
                 elif enemy_action == 2:
-                    pass
+                    print('the enemy missed!')
+            elif self.hp <= 0:
+                print('you died')
+                exit()
+            elif current_enemy.hp <= 0:
+                print('you defeated {}'.format(current_enemy.name))
+                cpw.i = 1
+                
         
 
 player = Kytizer(1450, 750)

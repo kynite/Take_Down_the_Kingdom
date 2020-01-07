@@ -1,7 +1,7 @@
 class KitchenKnife:
     def __init__(self):
         self.name = "Kitchen Knife"
-        self.damage = 1
+        self.damage = 5
 
 
 class Spear:

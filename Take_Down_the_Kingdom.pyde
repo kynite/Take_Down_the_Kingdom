@@ -32,6 +32,8 @@ def keyPressed():
         cpw.i = 3
     if key == 'y':
         player.healingtime()
+    if key == 'c':
+        loop()
 
 
 def draw():
@@ -57,6 +59,8 @@ def draw():
     elif cp.i == 3:
         player.showhealing()
     elif cp.i == 4:
+        loop()
         background(255)
-        wi.showcombat()
+        wi.showcombatguard1()
+
         
