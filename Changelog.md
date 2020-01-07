@@ -30,3 +30,6 @@
 ## Version 0.7 Alpha
 - Healing Added to game
 
+## Version 0.8 Alpha
+- Added Combat to the game
+
