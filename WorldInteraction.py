@@ -31,6 +31,11 @@ def playerinteracted():
     if player.x > 770 and player.x < 830:
         if player.y > 200 and player.y < 260:
             print('f')
+    if player.x > 775 and player.x < 815:
+        if player.y > 740 and player.y < 780:
+            player.x = 800
+            player.y = 785
+            cpw.i = 5
     
 
 def showcombatguard1():
@@ -41,3 +46,10 @@ def showcombatguard1():
     fill(0, 255, 0)
     text('Right click to attack', 850, 200)
     player.fight(castle_guard, 10)
+
+
+def shop():
+    text('* Type [L] to buy spear', 100, 600)
+    rectMode(CORNER)
+    fill(0)
+    rect(500, 300, 500, 200)

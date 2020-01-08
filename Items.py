@@ -20,11 +20,14 @@ class Sandwich:
         # Value of food
         self.value = 100
 
+
 class SliceofPizza:
     def __init__(self):
         self.name = 'Slice of Pizza'
         self.healing_value = 20
         self.value = 200
+
+
 
 kitchenknife = KitchenKnife()
 spear = Spear()

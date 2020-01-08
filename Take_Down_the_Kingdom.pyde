@@ -10,31 +10,33 @@ def setup():
     background(255)
 
 def keyPressed():
-    if key == 'w':
+    if key == 'w' and cp.i == 1:
         loop()
         player.movenorth()
-    if key == 's':
+    if key == 's' and cp.i == 1:
         loop()
         player.movesouth()
-    if key == 'a':
+    if key == 'a' and cp.i == 1:
         loop()
         player.movewest()
-    if key == 'd':
+    if key == 'd' and cp.i == 1:
         loop()
         player.moveeast()
-    if key == "i":
+    if key == "i" and cp.i == 1 or cp.i == 3:
         loop()
         cpw.i = 2
     if key == 'q':
         redraw()
         cpw.i = 1
-    if key == 'h':
+    if key == 'h' and cp.i == 2:
         redraw()
         cpw.i = 3
     if key == 'y':
         player.sandwichheal()
     if key == 'c':
         loop()
+    if key == 'l'and cp.i == 5:
+        player.buyitem1()
 
 
 def draw():
@@ -67,5 +69,22 @@ def draw():
         loop()
         background(255)
         wi.showcombatguard1()
+    elif cp.i == 5:
+        loop()
+        background(255)
+        wi.shop()
+    elif cp.i == 6:
+        loop()
+        background(255)
+        player.showtext1()
+    elif cp.i == 7:
+        loop()
+        background(255)
+        player.showtext2()
+    elif cp.i == 8:
+        loop()
+        background(255)
+        player.showtext3()
+        
 
         

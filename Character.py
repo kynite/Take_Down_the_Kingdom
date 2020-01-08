@@ -9,9 +9,9 @@ class Kytizer:
         self.healinginventory = [wp.sandwich, wp.sliceofpizza, wp.sliceofpizza, wp.sliceofpizza, wp.sandwich, wp.sandwich]
         self.x = x
         self.y = y
-        self.gold = 0
+        self.gold = 50
         self.hp = 80
-        self.shopinventory = []
+        self.shopinventory = [wp.spear]
         
     def playericon(self):
         fill(0, 0, 255)
@@ -118,9 +118,29 @@ class Kytizer:
                 self.gold += g
                 cpw.i = 1
                 current_enemy.hp = current_enemy.originalhp
-                
-                #text('type q to continue', 800, 500)
-                
-        
 
+    def buyitem1(self):
+        if self.gold >= 100 and wp.spear not in self.weaponinventory:
+            item = self.shopinventory.pop(0)
+            self.weaponinventory.append(item)
+            self.shopinventory.insert(0, None)
+            self.gold -= 100
+            cpw.i = 8
+        elif wp.spear in self.weaponinventory:
+            cpw.i = 7
+        else:
+            cpw.i = 6
+    
+    def showtext1(self):
+        text('insufficient gold', 50, 50)
+        text('Type q to leave', 1450, 890)
+    
+    def showtext2(self):
+        text('You already own this item', 50, 50)
+        text('Type q to leave', 1450, 890)
+    
+    def showtext3(self):
+        text('item bought!', 50, 50)
+        text('Type q to leave', 1450, 890)
+        
 player = Kytizer(1450, 750)
