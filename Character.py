@@ -398,14 +398,17 @@ class Kytizer:
             cpw.i = 6
 
     def showtext1(self):
+        textSize(20)
         text('insufficient gold', 50, 50)
         text('Type q to leave', 1450, 890)
     
     def showtext2(self):
+        textSize(20)
         text('You already own this item', 50, 50)
         text('Type q to leave', 1450, 890)
     
     def showtext3(self):
+        textSize(20)
         text('item bought!', 50, 50)
         text('Type q to leave', 1450, 890)
     
