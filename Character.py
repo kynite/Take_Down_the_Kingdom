@@ -173,11 +173,11 @@ class Kytizer:
 
     def showhealing(self):
         fill(0)
-        text('type y to use BottleOSprite', 10, 20)
-        text('type u to use Slice of Pizza', 10, 50)
-        text('type o to use Sandwich', 10, 70)
-        text('type p to use Soup', 10, 100)
-        text('type L to use Box of Pizza', 10, 130)
+        text('type [y] to use BottleOSprite', 10, 20)
+        text('type [u] to use Slice of Pizza', 10, 50)
+        text('type [o] to use Sandwich', 10, 80)
+        text('type [p] to use Soup', 10, 110)
+        text('type [r] to use Box of Pizza', 10, 140)
         text('Type q to leave', 1450, 890)
     
     def fight(self, e, g):
@@ -188,6 +188,7 @@ class Kytizer:
         text('You came in combat with {}'.format(current_enemy.name), 750, 150)
         if mousePressed and mouseButton == RIGHT:
             if self.hp > 0 and current_enemy.hp > 0:
+                fill(0)
                 text('Press [c] to continue', 1200, 800)
                 current_enemy.hp = current_enemy.hp - bestweapon.damage
                 noLoop()
@@ -221,6 +222,7 @@ class Kytizer:
         text('You came in combat with {}'.format(current_enemy.name), 750, 150)
         if mousePressed and mouseButton == RIGHT:
             if self.hp > 0 and current_enemy.hp > 0:
+                fill(0)
                 text('Press [c] to continue', 1200, 800)
                 current_enemy.hp = current_enemy.hp - bestweapon.damage
                 noLoop()

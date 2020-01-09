@@ -38,7 +38,7 @@ def keyPressed():
         player.sandwichheal()
     if key == 'p':
         player.soupheal()
-    if key == 'l':
+    if key == 'r':
         player.boxofpizzaheal()
     if key == 'c':
         loop()
@@ -142,6 +142,42 @@ def draw():
         background(255)
         loop()
         wi.showcombatguard6()
+    elif cp.i == 16:
+        background(255)
+        loop()
+        player.playericon()
+        rectMode(CORNER)
+        PlayerHouse(1445, 720)
+        Main.maintext()
+    elif cp.i == 17:
+        background(255)
+        loop()
+        Main.maintext2()
+        GuardHouseNo1(1310, 475)
+        GuardHouseNo2(785, 475)
+        GuardHouseNo3(300, 475)
+        GuardHouseNo4(1300, 200)
+        GuardHouseNo5(300, 200)
+        GuardHouseNo6(770, 200)
+    elif cp.i == 18:
+        background(255)
+        loop()
+        KingsPalace(800, 75)
+        Main.maintext3()
+    elif cp.i == 19:
+        background(255)
+        loop()
+        Trader(775, 740)
+        Main.maintext4()
+    elif cp.i == 20:
+        background(255)
+        loop()
+        Main.maintext5()
+    elif cp.i == 21:
+        background(255)
+        Main.pretext()
+        
+        
         
 
         

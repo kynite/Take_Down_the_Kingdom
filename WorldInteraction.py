@@ -3,6 +3,10 @@ from Index import changingpicture as cpw
 from Enemies import *
 
 def playerinteracted():
+    """
+    Checks if player enters an event area,
+    if player does enter area then event runs
+    """
     # guard 1
     if player.x > 1310 and player.x < 1335:
         if player.y > 475 and player.y < 500:
@@ -70,6 +74,8 @@ def showcombatguard1():
     fill(0, 255, 0)
     # Green text for instruction on how to attack
     text('Right click to attack', 850, 200)
+    # Green text for instruction on how to run
+    text('type [q] to run', 850, 230)
     # Initiates battle
     player.fight(castle_guard1, 10)
 
@@ -88,6 +94,8 @@ def showcombatguard2():
     fill(0, 255, 0)
     # Green text for instruction on how to attack
     text('Right click to attack', 850, 200)
+    # Green text for instruction on how to run
+    text('type [q] to run', 850, 230)
     # Initiates battle
     player.fight(castle_guard2, 50)
     
@@ -106,6 +114,8 @@ def showcombatguard3():
     fill(0, 255, 0)
     # Green text for instruction on how to attack
     text('Right click to attack', 850, 200)
+    # Green text for instruction on how to run
+    text('type [q] to run', 850, 230)
     # Initiates battle
     player.fight(castle_guard3, 100)
 
@@ -124,6 +134,8 @@ def showcombatguard4():
     fill(0, 255, 0)
     # Green text for instruction on how to attack
     text('Right click to attack', 850, 200)
+    # Green text for instruction on how to run
+    text('type [q] to run', 850, 230)
     # Initiates battle
     player.fight(castle_guard4, 300)
 
@@ -142,6 +154,8 @@ def showcombatguard5():
     fill(0, 255, 0)
     # Green text for instruction on how to attack
     text('Right click to attack', 850, 200)
+    # Green text for instruction on how to run
+    text('type [q] to run', 850, 230)
     # Initiates battle
     player.fight(castle_guard5, 800)
 
@@ -160,6 +174,8 @@ def showcombatguard6():
     fill(0, 255, 0)
     # Green text for instruction on how to attack
     text('Right click to attack', 850, 200)
+    # Green text for instruction on how to run
+    text('type [q] to run', 850, 230)
     # Initiates battle
     player.fight(castle_guard6, 1500)
 
