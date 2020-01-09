@@ -33,3 +33,9 @@
 ## Version 0.8 Alpha
 - Added Combat to the game
 
+## Version 0.9 Alpha
+- Added final boss
+- Added more Items
+- Added more enemies
+- Added shop to buy items from
+

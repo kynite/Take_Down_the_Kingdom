@@ -1,5 +1,4 @@
 from Character import *
-from MovingPlayer import *
 import Main
 from Index import changingpicture as cp
 from World import *
@@ -25,21 +24,51 @@ def keyPressed():
     if key == "i" and cp.i == 1 or cp.i == 3:
         loop()
         cpw.i = 2
-    if key == 'q':
+    if key == 'q' and not cp.i == 9 or cp.i == 10:
         redraw()
         cpw.i = 1
     if key == 'h' and cp.i == 2:
         redraw()
         cpw.i = 3
     if key == 'y':
+        player.bottleospriteheal()
+    if key == 'u':
+        player.sliceofpizzaheal()
+    if key == 'o':
         player.sandwichheal()
+    if key == 'p':
+        player.soupheal()
+    if key == 'l':
+        player.boxofpizzaheal()
     if key == 'c':
         loop()
+    if key == 'z'and cp.i == 5:
+        player.buyspear()
+    if key == 'x'and cp.i == 5:
+        player.buykopesh()
+    if key == 'c'and cp.i == 5:
+        player.buyshovel()
+    if key == 'v'and cp.i == 5:
+        player.buyshotel()
+    if key == 'b'and cp.i == 5:
+        player.buyzweihander()
+    if key == 'f'and cp.i == 5:
+        player.buysandwich()
+    if key == 'g'and cp.i == 5:
+        player.buysliceofpizza()
+    if key == 'j'and cp.i == 5:
+        player.buyboxofpizza()
+    if key == 'k'and cp.i == 5:
+        player.buybottleosprite()
     if key == 'l'and cp.i == 5:
-        player.buyitem1()
+        player.buysoup()
+    if key == 't' and cp.i == 1:
+        player.x = 1445
+        player.y = 750
 
 
 def draw():
+    print(mouseX, mouseY)
     if cp.i == 0:
         Main.mainmenu()
     elif cp.i == 1:
@@ -47,6 +76,7 @@ def draw():
         fill(0)
         text('Use [WASD] to move', 1400, 890)
         text('Type [i] to open Inventory', 1350, 870)
+        player.outofbounds()
         wi.playerinteracted()
         player.playericon()
         player.showgold()
@@ -85,6 +115,33 @@ def draw():
         loop()
         background(255)
         player.showtext3()
+    elif cp.i == 9:
+        loop()
+        background(255)
+        wi.finalcombatking()
+    elif cp.i == 10:
+        background(255)
+        player.showending()
+    elif cp.i == 11:
+        background(255)
+        loop()
+        wi.showcombatguard2()
+    elif cp.i == 12:
+        background(255)
+        loop()
+        wi.showcombatguard3()
+    elif cp.i == 13:
+        background(255)
+        loop()
+        wi.showcombatguard4()
+    elif cp.i == 14:
+        background(255)
+        loop()
+        wi.showcombatguard5()
+    elif cp.i == 15:
+        background(255)
+        loop()
+        wi.showcombatguard6()
         
 
         

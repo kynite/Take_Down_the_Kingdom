@@ -3,11 +3,11 @@ class KingsPalace:
         fill(234)
         rectMode(CENTER)
         # Big Castle
-        rect(x, y, 75, 75)
+        rect(x, y, 100, 100)
         rectMode(CORNER)
         fill(0)
         # Door
-        rect(x - 5, y + 37.5, 10, -15)
+        rect(x - 5, y + 30, 10, 19)
         
 
 class PlayerHouse:
@@ -52,10 +52,10 @@ class GuardHouseNo4:
 class GuardHouseNo5:
     def __init__(self, x, y):
         fill(255, 0, 0)
-        rect(x, y, 55, 55)
+        rect(x, y, 65, 65)
         
 
 class GuardHouseNo6:
     def __init__(self, x, y):
         fill(255, 0, 0)
-        rect(x, y, 60, 60)
+        rect(x, y, 80, 80)
