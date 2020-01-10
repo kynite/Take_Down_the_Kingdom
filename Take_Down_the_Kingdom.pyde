@@ -4,11 +4,21 @@ from Index import changingpicture as cp
 from World import *
 import WorldInteraction as wi
 
+
 def setup():
+    """Sets up window of game"""
+    # Window/game size is 1600x900
     size(1600, 900)
+    # Background set to white
     background(255)
 
+
 def keyPressed():
+    """
+    If a certain key is pressed only run the command once,
+    some only run in certain events/screens
+    """
+    # Moving
     if key == 'w' and cp.i == 1:
         loop()
         player.movenorth()
@@ -21,15 +31,18 @@ def keyPressed():
     if key == 'd' and cp.i == 1:
         loop()
         player.moveeast()
+    # Inventory
     if key == "i" and cp.i == 1 or cp.i == 3:
         loop()
         cpw.i = 2
     if key == 'q' and not cp.i == 9 or cp.i == 10:
         redraw()
         cpw.i = 1
+    # Healing screen
     if key == 'h' and cp.i == 2:
         redraw()
         cpw.i = 3
+    # Healing
     if key == 'y':
         player.bottleospriteheal()
     if key == 'u':
@@ -40,8 +53,10 @@ def keyPressed():
         player.soupheal()
     if key == 'r':
         player.boxofpizzaheal()
+    # Key to resume loop
     if key == 'c':
         loop()
+    # Shop
     if key == 'z'and cp.i == 5:
         player.buyspear()
     if key == 'x'and cp.i == 5:
@@ -62,13 +77,14 @@ def keyPressed():
         player.buybottleosprite()
     if key == 'l'and cp.i == 5:
         player.buysoup()
+    # Teleport home
     if key == 't' and cp.i == 1:
         player.x = 1445
         player.y = 750
 
 
 def draw():
-    print(mouseX, mouseY)
+    """Draws the images on screen if index matches"""
     if cp.i == 0:
         Main.mainmenu()
     elif cp.i == 1:
@@ -176,8 +192,3 @@ def draw():
     elif cp.i == 21:
         background(255)
         Main.pretext()
-        
-        
-        
-
-        

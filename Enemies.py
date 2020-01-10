@@ -48,8 +48,8 @@ class CastleGuard4():
         self.originalhp = 750
         # Damage the enemy does
         self.damage = 10
-        
-        
+
+
 class CastleGuard5():
     """An enemy the player might face"""
     def __init__(self):
@@ -81,12 +81,11 @@ class King():
     def __init__(self):
         # Name of the final boss
         self.name = 'Oden The King'
-        # Health of the final boss 
+        # Health of the final boss
         self.hp = 5000
         # Damage of the final boss
         self.damage = 20
-        
-        
+
 
 # Instances of enemies
 castle_guard1 = CastleGuard1()
@@ -96,4 +95,3 @@ castle_guard4 = CastleGuard4()
 castle_guard5 = CastleGuard5()
 castle_guard6 = CastleGuard6()
 king = King()
-    

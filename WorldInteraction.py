@@ -2,63 +2,64 @@ from Character import player
 from Index import changingpicture as cpw
 from Enemies import *
 
+
 def playerinteracted():
     """
     Checks if player enters an event area,
     if player does enter area then event runs
     """
-    # guard 1
+    # guard 1 fight if players coordinates match
     if player.x > 1310 and player.x < 1335:
         if player.y > 475 and player.y < 500:
             player.x = 1323
             player.y = 505
             cpw.i = 4
-    # guard 2
+    # guard 2 fight if players coordinates match
     if player.x > 785 and player.x < 820:
         if player.y > 475 and player.y < 510:
             player.x = 802
             player.y = 515
             cpw.i = 11
-    # guard 3
+    # guard 3 fight if players coordinates match
     if player.x > 300 and player.x < 345:
         if player.y > 475 and player.y < 520:
             player.x = 323
             player.y = 525
             cpw.i = 12
-    # guard 4
+    # guard 4 fight if players coordinates match
     if player.x > 1300 and player.x < 1350:
         if player.y > 200 and player.y < 250:
             player.x = 1325
             player.y = 255
             cpw.i = 13
-    # guard 5
+    # guard 5 fight if players coordinates match
     if player.x > 300 and player.x < 365:
         if player.y > 200 and player.y < 265:
             player.x = 330
             player.y = 270
             cpw.i = 14
-    # guard 6
+    # guard 6 fight if players coordinates match
     if player.x > 770 and player.x < 850:
         if player.y > 200 and player.y < 280:
             player.x = 810
             player.y = 285
             cpw.i = 15
-    # King
+    # King fight if players coordinates match
     if player.x > 750 and player.x < 855:
         if player.y > 25 and player.y < 125:
             cpw.i = 9
-    # Shop
+    # Shop if players coordinates match
     if player.x > 775 and player.x < 815:
         if player.y > 740 and player.y < 780:
             player.x = 800
             player.y = 785
             cpw.i = 5
-    # House
+    # House if players coordinates match doesn't do anything
     if player.x > 1445 and player.x < 1465:
         if player.y > 710 and player. y < 740:
             player.x = 1455
             player.y = 745
-    
+
 
 def showcombatguard1():
     """Displays Combat for enemy"""
@@ -98,7 +99,7 @@ def showcombatguard2():
     text('type [q] to run', 850, 230)
     # Initiates battle
     player.fight(castle_guard2, 50)
-    
+
 
 def showcombatguard3():
     """Displays Combat for enemy"""
@@ -181,6 +182,7 @@ def showcombatguard6():
 
 
 def finalcombatking():
+    """UI for combat with king"""
     # Blue Color
     fill(0, 0, 255)
     # Blue rectangle representing player
@@ -198,6 +200,7 @@ def finalcombatking():
 
 
 def shop():
+    """Graphic and text for shop"""
     textSize(20)
     text('* Type [z] to buy Spear (100 GOLD)', 100, 600)
     text('* Type [x] to buy Kopesh (250 GOLD)', 100, 630)

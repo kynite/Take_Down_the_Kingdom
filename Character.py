@@ -26,32 +26,42 @@ class Kytizer:
                               wp.zweihander, wp.sandwich, wp.sliceofpizza,
                               wp.boxofpizza, wp.bottleosprite, wp.soup
                               ]
-        
+
     def playericon(self):
+        """Player icon"""
         fill(0, 0, 255)
         rectMode(CENTER)
-        rect(self.x, self.y, 10, 10) 
-    
+        rect(self.x, self.y, 10, 10)
+
     def movenorth(self):
+        """player movement north/up"""
         self.y += -3
 
     def movesouth(self):
+        """player movement south/down"""
         self.y += 3
 
     def movewest(self):
+        """player movement west/left"""
         self.x += -3
-            
+
     def moveeast(self):
+        """player movement east/right"""
         self.x += 3
-        
+
     def showgold(self):
+        """Show player health and gold on screen"""
         textSize(20)
         fill(0)
         text('{} Gold'.format(self.gold), 10, 20)
         text('{}HP'.format(self.hp), 10, 50)
 
-        
     def showinventory(self):
+        """
+        Display each of the players items, best weapon,
+        and what to press to show healing keys.
+        """
+        # Height of the first item shown
         y = 100
         textSize(20)
         fill(0)
@@ -61,6 +71,7 @@ class Kytizer:
         text('Consumables:', 10, 100)
         text('{}'.format(self.most_powerful_weapon().name), 150, 20)
         text('Type q to leave', 1450, 890)
+        # displays each item, each sperated by 30 spaces
         for item in self.healinginventory:
             text('{} {}HP'.format(item.name, item.healing_value), 160, y)
             y = y + 30
@@ -85,7 +96,7 @@ class Kytizer:
                 pass
         # sends the best weapon to function
         return best_weapon
-    
+
     def sandwichheal(self):
         """Heals players hp for the amount Sandwich provides"""
         # Checks to see if the item is in inventory
@@ -172,6 +183,7 @@ class Kytizer:
             print('no soup in inventory')
 
     def showhealing(self):
+        """Shows the key inputs to heal"""
         fill(0)
         text('type [y] to use BottleOSprite', 10, 20)
         text('type [u] to use Slice of Pizza', 10, 50)
@@ -179,42 +191,79 @@ class Kytizer:
         text('type [p] to use Soup', 10, 110)
         text('type [r] to use Box of Pizza', 10, 140)
         text('Type q to leave', 1450, 890)
-    
+
     def fight(self, e, g):
+        """Player combat with an enemy"""
+        # sets the players weapon with their most powerful weapon
         bestweapon = self.most_powerful_weapon()
+        # Sets the current enemy
         current_enemy = e
+        # Gives the enemy an action number
         enemy_action = random(1, 3)
+        # Makes the enemy action integer instead of float
         enemy_action = int(enemy_action)
+        # Tells user they came in contact with the current enemy
         text('You came in combat with {}'.format(current_enemy.name), 750, 150)
+        # Checks if user right clicked
         if mousePressed and mouseButton == RIGHT:
+            # Checks if player and enemies health is above 0
             if self.hp > 0 and current_enemy.hp > 0:
+                # Black colour
                 fill(0)
+                # Tells user how to continue the fight
                 text('Press [c] to continue', 1200, 800)
+                # Takes away enemy health by the damage players weapon does
                 current_enemy.hp = current_enemy.hp - bestweapon.damage
+                # no loop so player can attack one at a time
                 noLoop()
+                # blue color
                 fill(0, 0, 255)
-                text('You attacked and dealt {} damage!'.format(bestweapon.damage), 750, 800)
+                # tells how much damage player did
+                text('You \
+attacked and dealt {} damage!'.format(bestweapon.damage), 750, 800)
+                # red color
                 fill(255, 0, 0)
+                # tells user how much hp enemy has
                 text('Enemy: {}HP'.format(current_enemy.hp), 750, 850)
+                # checks if enemy random number equals 1
                 if enemy_action == 1:
+                    # damage the player
                     self.hp -= current_enemy.damage
-                    text('The enemy attacked and dealt {} damage!'.format(current_enemy.damage), 200, 800)
+                    # tell user how much damage they took
+                    text('The \
+enemy attacked and dealt {} damage!'.format(current_enemy.damage), 200, 800)
+                    # blue color
                     fill(0, 0, 255)
+                    # players health
                     text('{}HP'.format(self.hp), 200, 100)
+                # checks if enemy random number equals 2
                 elif enemy_action == 2:
+                    # red color
                     fill(255, 0, 0)
+                    # the enemy misses and does no damage
                     text('The enemy missed!', 200, 800)
+            # if player health is 0 or less
             elif self.hp <= 0:
+                # game exits
                 print('You died')
                 exit()
+            # if enemy health is 0 or less
             elif current_enemy.hp <= 0:
                 fill(0, 0, 255)
-                print('You defeated {} and gained {}'.format(current_enemy.name, g))
+                # tells player who they defeated and gold earned
+                print('You \
+defeated {} and gained {}'.format(current_enemy.name, g))
+                # add gold to player
                 self.gold += g
+                # sets it back to map
                 cpw.i = 1
+                # gives enemy original hp
                 current_enemy.hp = current_enemy.originalhp
 
     def fightking(self):
+        """
+        Same code as fight() except if you win this one the game ends
+        """
         bestweapon = self.most_powerful_weapon()
         current_enemy = king
         enemy_action = random(1, 3)
@@ -227,12 +276,14 @@ class Kytizer:
                 current_enemy.hp = current_enemy.hp - bestweapon.damage
                 noLoop()
                 fill(0, 0, 255)
-                text('You attacked and dealt {} damage!'.format(bestweapon.damage), 750, 800)
+                text('You \
+attacked and dealt {} damage!'.format(bestweapon.damage), 750, 800)
                 fill(255, 0, 0)
                 text('Enemy: {}HP'.format(current_enemy.hp), 750, 850)
                 if enemy_action == 1:
                     self.hp -= current_enemy.damage
-                    text('The enemy attacked and dealt {} damage!'.format(current_enemy.damage), 200, 800)
+                    text('The \
+enemy attacked and dealt {} damage!'.format(current_enemy.damage), 200, 800)
                     fill(0, 0, 255)
                     text('{}HP'.format(self.hp), 200, 100)
                 elif enemy_action == 2:
@@ -246,64 +297,109 @@ class Kytizer:
 
     def buyspear(self):
         """Purchases Spear if it satisfies constraits"""
+        # Check if user has enough gold and has not already purchased item
         if self.gold >= 100 and wp.spear not in self.weaponinventory:
+            # Pops item from list to a single variable
             item = self.shopinventory.pop(0)
+            # Adds item to player inventory
             self.weaponinventory.append(item)
+            # Takes gold from player
             self.gold -= 100
+            # Brings them to purchased page
             cpw.i = 8
+        # If the item is already in the inventory
         elif wp.spear in self.weaponinventory:
+            # Brings them to already purchased screen
             cpw.i = 7
+        # If player does not have enough gold and item
         else:
+            # Brings them to insufficient funds page
             cpw.i = 6
 
     def buykopesh(self):
         """Purchases Kopesh if it satisfies constraits"""
+        # Check if user has enough gold and has not already purchased item
         if self.gold >= 250 and wp.kopesh not in self.weaponinventory:
+            # Pops item from list to a single variable
             item = self.shopinventory.pop(1)
+            # Adds item to player inventory
             self.weaponinventory.append(item)
+            # Takes gold from player
             self.gold -= 250
+            # Brings them to purchased page
             cpw.i = 8
+        # If the item is already in the inventory
         elif wp.kopesh in self.weaponinventory:
+            # Brings them to already purchased screen
             cpw.i = 7
+        # If player does not have enough gold and item
         else:
+            # Brings them to insufficient funds page
             cpw.i = 6
 
     def buyshovel(self):
         """Purchases Shovel if it satisfies constraits"""
+        # Check if user has enough gold and has not already purchased item
         if self.gold >= 1800 and wp.shovel not in self.weaponinventory:
+            # Pops item from list to a single variable
             item = self.shopinventory.pop(2)
+            # Adds item to player inventory
             self.weaponinventory.append(item)
+            # Takes gold from player
             self.gold -= 1800
+            # Brings them to purchased page
             cpw.i = 8
+        # If the item is already in the inventory
         elif wp.shovel in self.weaponinventory:
+            # Brings them to already purchased screen
             cpw.i = 7
+        # If player does not have enough gold and item
         else:
+            # Brings them to insufficient funds page
             cpw.i = 6
-            
+
     def buyshotel(self):
         """Purchases Shotel if it satisfies constraits"""
+        # Check if user has enough gold and has not already purchased item
         if self.gold >= 5000 and wp.shotel not in self.weaponinventory:
+            # Pops item from list to a single variable
             item = self.shopinventory.pop(3)
+            # Adds item to player inventory
             self.weaponinventory.append(item)
+            # Takes gold from player
             self.gold -= 5000
+            # Brings them to purchased page
             cpw.i = 8
+        # If the item is already in the inventory
         elif wp.shotel in self.weaponinventory:
+            # Brings them to already purchased screen
             cpw.i = 7
+        # If player does not have enough gold and item
         else:
+            # Brings them to insufficient funds page
             cpw.i = 6
-            
+
     def buyzweihander(self):
         """Purchases Zweihander if it satisfies constraits"""
+        # Check if user has enough gold and has not already purchased item
         if self.gold >= 20000 and wp.zweihander not in self.weaponinventory:
+            # Pops item from list to a single variable
             item = self.shopinventory.pop(4)
+            # Adds item to player inventory
             self.weaponinventory.append(item)
+            # Takes gold from player
             self.gold -= 20000
+            # Brings them to purchased page
             cpw.i = 8
+        # If the item is already in the inventory
         elif wp.zweihander in self.weaponinventory:
+            # Brings them to already purchased screen
             cpw.i = 7
+        # If player does not have enough gold and item
         else:
+            # Brings them to insufficient funds page
             cpw.i = 6
-            
+
     def buysandwich(self):
         """Purchases Sandwich if it satisfies constraits"""
         # Checks to see if player has enough gold
@@ -400,29 +496,41 @@ class Kytizer:
             cpw.i = 6
 
     def showtext1(self):
+        """Tells user they don't have enough gold"""
         textSize(20)
         text('insufficient gold', 50, 50)
         text('Type q to leave', 1450, 890)
-    
+
     def showtext2(self):
+        """Tells user they already own the item"""
         textSize(20)
         text('You already own this item', 50, 50)
         text('Type q to leave', 1450, 890)
-    
+
     def showtext3(self):
+        """Tells user they bought the item"""
         textSize(20)
         text('item bought!', 50, 50)
         text('Type q to leave', 1450, 890)
-    
+
     def showending(self):
+        """End of the game text"""
         textSize(50)
         text('You saved your friend from the king, THE END', 10, 450)
         text('Press [ESC] to exit the game', 400, 500)
-    
+
     def outofbounds(self):
+        """
+        Checks if player is out of bound and if they are
+        then text tells them what to do to get back into the game
+        """
         if player.x < 0 or player.x > 1600:
-            text('You are out of bounds type [t] to teleport back to home', 500, 450)
+            text('You are \
+out of bounds type [t] to teleport back to home', 500, 450)
         if player.y < 0 or player.y > 900:
-            text('You are out of bounds type [t] to teleport back to home', 500, 450)
-        
+            text('You \
+are out of bounds type [t] to teleport back to home', 500, 450)
+
+
+# Instance of player
 player = Kytizer(1450, 750)

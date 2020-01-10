@@ -79,7 +79,6 @@ class BoxofPizza:
         self.healing_value = 100
 
 
-
 class BottleOSprite:
     """A consumable the player can use to heal"""
     def __init__(self):
@@ -96,7 +95,6 @@ class Soup:
         self.name = 'Soup'
         # Healing value of the consumable
         self.healing_value = 35
-
 
 
 # Weapon instances
