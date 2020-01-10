@@ -39,3 +39,6 @@
 - Added more enemies
 - Added shop to buy items from
 
+## Version 0.91 Beta
+- Fixed a bug where the shops consumables would be purchased incorrectly
+
