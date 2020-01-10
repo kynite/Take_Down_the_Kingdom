@@ -10,7 +10,8 @@ class Kytizer:
         self.weaponinventory = [wp.kitchenknife]
         # Player Consumable inventory
         self.healinginventory = [
-                                 wp.sandwich, wp.sliceofpizza, wp.bottleosprite
+                                 wp.sandwich, wp.sliceofpizza,
+                                 wp.bottleosprite, wp.boxofpizza
                                  ]
         # Player x coordinate
         self.x = x
@@ -303,6 +304,8 @@ enemy attacked and dealt {} damage!'.format(current_enemy.damage), 200, 800)
             item = self.shopinventory.pop(0)
             # Adds item to player inventory
             self.weaponinventory.append(item)
+            # readds the item back into the shop
+            self.shopinventory.insert(0, wp.spear)
             # Takes gold from player
             self.gold -= 100
             # Brings them to purchased page
@@ -324,6 +327,8 @@ enemy attacked and dealt {} damage!'.format(current_enemy.damage), 200, 800)
             item = self.shopinventory.pop(1)
             # Adds item to player inventory
             self.weaponinventory.append(item)
+            # readds the item back into the shop
+            self.shopinventory.insert(0, wp.kopesh)
             # Takes gold from player
             self.gold -= 250
             # Brings them to purchased page
@@ -345,6 +350,8 @@ enemy attacked and dealt {} damage!'.format(current_enemy.damage), 200, 800)
             item = self.shopinventory.pop(2)
             # Adds item to player inventory
             self.weaponinventory.append(item)
+            # readds the item back into the shop
+            self.shopinventory.insert(0, wp.shovel)
             # Takes gold from player
             self.gold -= 1800
             # Brings them to purchased page
@@ -366,6 +373,8 @@ enemy attacked and dealt {} damage!'.format(current_enemy.damage), 200, 800)
             item = self.shopinventory.pop(3)
             # Adds item to player inventory
             self.weaponinventory.append(item)
+            # readds the item back into the shop
+            self.shopinventory.insert(0, wp.shotel)
             # Takes gold from player
             self.gold -= 5000
             # Brings them to purchased page
@@ -387,6 +396,8 @@ enemy attacked and dealt {} damage!'.format(current_enemy.damage), 200, 800)
             item = self.shopinventory.pop(4)
             # Adds item to player inventory
             self.weaponinventory.append(item)
+            # readds the item back into the shop
+            self.shopinventory.insert(0, wp.zweihander)
             # Takes gold from player
             self.gold -= 20000
             # Brings them to purchased page

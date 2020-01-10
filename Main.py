@@ -88,8 +88,8 @@ def maintext4():
 def maintext5():
     """Game explaination"""
     fill(0)
-    text('use [WASD] to move, and press [i] to view inventory', 100, 100)
-    text('HAVE FUN :)', 100, 140)
+    text('use [WASD] to move, press [i] to view inventory', 100, 100)
+    text('and press escape [Esc] to quit anytime HAVE FUN :)', 100, 140)
     text('LEFT click to continue', 100, 180)
     # If correct mouse key is pressed move on
     if mousePressed and mouseButton == LEFT:
