@@ -42,3 +42,8 @@
 ## Version 0.91 Beta
 - Fixed a bug where the shops consumables would be purchased incorrectly
 
+## Version 0.92 Beta
+- Increased player movement speed
+- Increased healing value of health items
+- Added more clarity on how to use healing items
+

@@ -36,7 +36,7 @@ kitchen knife', 100, 340)
     text('and that you can get gold by attacking the kings guards', 100, 420)
     text('you decide that you will work your way up to take down the \
 kingdom', 100, 460)
-    text('Right click to continue', 100, 500)
+    text('Right click to continue', 100, 600)
     # If correct mouse key is pressed move on
     if mousePressed and mouseButton == RIGHT:
         cp.i = 16
@@ -57,7 +57,7 @@ def maintext2():
     fill(0)
     text("The red squares are enemy castles,", 400, 800)
     text('the difficulty goes from smallest-biggest,', 400, 840)
-    text('which is easiest to hardest, Right click to continue', 400, 880)
+    text('which is easiest to hardest, Right click to continue', 400, 890)
     # If correct mouse key is pressed move on
     if mousePressed and mouseButton == RIGHT:
         cp.i = 18
@@ -68,7 +68,7 @@ def maintext3():
     fill(0)
     text('This is the kings castle, the final boss', 400, 400)
     text('Be prepared this is a hard battle', 400, 440)
-    text('LEFT click to continue', 400, 480)
+    text('LEFT click to continue', 400, 500)
     # If correct mouse key is pressed move on
     if mousePressed and mouseButton == LEFT:
         cp.i = 19
@@ -79,7 +79,7 @@ def maintext4():
     fill(0)
     text('This is the store, you can buy healing items', 100, 100)
     text('and weapons from here as long as you have enough gold', 100, 140)
-    text('RIGHT click to continue', 100, 180)
+    text('RIGHT click to continue', 100, 300)
     # If correct mouse key is pressed move on
     if mousePressed and mouseButton == RIGHT:
         cp.i = 20
@@ -89,8 +89,9 @@ def maintext5():
     """Game explaination"""
     fill(0)
     text('use [WASD] to move, press [i] to view inventory', 100, 100)
-    text('and press escape [Esc] to quit anytime HAVE FUN :)', 100, 140)
-    text('LEFT click to continue', 100, 180)
+    text('in the inventory press [h] to show healing keys', 100, 140)
+    text('and press escape [Esc] to quit anytime HAVE FUN :)', 100, 180)
+    text('LEFT click to continue', 100, 300)
     # If correct mouse key is pressed move on
     if mousePressed and mouseButton == LEFT:
         cp.i = 1

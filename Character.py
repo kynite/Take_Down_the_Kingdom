@@ -36,19 +36,19 @@ class Kytizer:
 
     def movenorth(self):
         """player movement north/up"""
-        self.y += -3
+        self.y += -4
 
     def movesouth(self):
         """player movement south/down"""
-        self.y += 3
+        self.y += 4
 
     def movewest(self):
         """player movement west/left"""
-        self.x += -3
+        self.x += -4
 
     def moveeast(self):
         """player movement east/right"""
-        self.x += 3
+        self.x += 4
 
     def showgold(self):
         """Show player health and gold on screen"""

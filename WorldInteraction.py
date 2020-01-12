@@ -215,5 +215,5 @@ def shop():
     rectMode(CORNER)
     fill(0)
     textSize(55)
-    text('shop', 650, 150)
+    text('Shop', 650, 150)
     rect(500, 300, 500, 200)

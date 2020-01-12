@@ -58,7 +58,7 @@ class Sandwich:
         # Name of the consumable
         self.name = 'Sandwich'
         # Healing value of the consumable
-        self.healing_value = 10
+        self.healing_value = 12
 
 
 class SliceofPizza:
@@ -67,7 +67,7 @@ class SliceofPizza:
         # Name of the consumable
         self.name = 'Slice of Pizza'
         # Healing value of the consumable
-        self.healing_value = 5
+        self.healing_value = 8
 
 
 class BoxofPizza:
@@ -85,7 +85,7 @@ class BottleOSprite:
         # Name of the consumable
         self.name = 'Bottle O Sprite'
         # Healing value of the consumable
-        self.healing_value = 3
+        self.healing_value = 5
 
 
 class Soup:
@@ -94,7 +94,7 @@ class Soup:
         # Name of the consumable
         self.name = 'Soup'
         # Healing value of the consumable
-        self.healing_value = 35
+        self.healing_value = 40
 
 
 # Weapon instances
